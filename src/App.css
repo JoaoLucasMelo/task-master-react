@@ -7,6 +7,21 @@
   pointer-events: none;
 }
 
+.createField{
+  border-radius: 10px;
+  
+}
+.noteSize{
+  width: 30vw !important;
+}
+
+.note{
+    height: 20vw;
+    border-top: 0 !important;
+    border-width: 1px !important;
+    border: solid;
+    border-color: rgb(192, 192, 192);
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
