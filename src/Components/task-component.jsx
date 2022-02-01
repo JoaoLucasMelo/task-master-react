@@ -7,7 +7,12 @@ export default function Task(props) {
     useEffect(() => {
         checked? props.checked() : props.unchecked()
     },[checked])
+
+    let handleDelete = () => {
+        if(checked) { props.unchecked(); props.onDelete()}
+        else { props.onDelete() }
+    }
   return <div>
-      <li style={{textDecoration: checked? 'Line-Through' : ''}} className='d-flex justify-content-between align-items-center my-1'><input checked={checked ? 'checked' : ''} onChange={() => setChecked(checked = !checked)}  type="checkbox" />{props.taskName} <button className='btn btn-sm nodecoration btn-outline-danger' onClick={checked? props.unchecked && props.onDelete : props.onDelete}>Delete</button></li>
+      <li style={{textDecoration: checked? 'Line-Through' : ''}} className='d-flex justify-content-between align-items-center my-1'><input checked={checked ? 'checked' : ''} onChange={() => setChecked(checked = !checked)}  type="checkbox" />{props.taskName} <button className='btn btn-sm nodecoration btn-outline-danger' onClick={handleDelete}>Delete</button></li>
   </div>;
 }

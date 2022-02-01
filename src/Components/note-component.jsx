@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useState } from 'react/cjs/react.development';
 import Task from './task-component';
 
@@ -36,7 +36,10 @@ export default function Note(props) {
           <div>
             <div className='d-flex justify-content-between align-items-center px-3'>
               <h3 className='text-center pt-2'>{props.noteName}</h3>
-              <h5 className='mb-0'>{checked}/{tasks.length}</h5>
+              <div className='d-flex flex-column align-items-center'>
+                <button title='Delete Note' className='btn btn-sm btn-outline-danger px-2 p-0 mt-1 ' onClick={props.onDelete}>X</button>
+              <i className='mb-0 fs-5'>{checked}/{tasks.length}</i>
+              </div>
             </div>
             <div className='p-3 tasksSpace scrollbar'>
               <ul className='ps-1'>
