@@ -11,8 +11,8 @@ export default function NoteCreatorField(props) {
           <h1>Create new Sticky Note</h1>
           <form onSubmit={props.onSubmit} className='d-flex justify-content-between'>
             <div className='col-5 me-5'>
-              <label htmlFor="name">Sticky Note Name:</label>
-               <input type="text" maxLength={15} id='name' value={props.name} onChange={props.setName} className='form-control me-5' />
+              <label htmlFor="name">Sticky Note Title:</label>
+               <input type="text" placeholder='Title Here...' maxLength={15} id='name' value={props.name} onChange={props.setName} className='form-control me-5' />
             </div>
             <div className='col-3'>
             <label htmlFor="color">Color:</label>

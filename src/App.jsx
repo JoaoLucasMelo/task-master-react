@@ -19,6 +19,7 @@ function App() {
     e.preventDefault()
     if(name.length > 1){
     setNote([...notes,{id: Math.floor(Math.random() * 10000)  ,noteName: name, noteColor: color}])
+    setName( name = '')
     }
   }
   let handleDelete = (id) => {
