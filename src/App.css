@@ -12,15 +12,35 @@
   
 }
 .noteSize{
-  width: 30vw !important;
+  width: 45vh !important;
 }
-
+.tasksSpace{
+  margin-right: 10px;
+}
+.nodecoration{
+  text-decoration: none !important;
+}
 .note{
-    height: 20vw;
+    padding: 5px;
+    height: 45vh;
     border-top: 0 !important;
     border-width: 1px !important;
     border: solid;
     border-color: rgb(192, 192, 192);
+}
+.scrollbar {
+  overflow-y: scroll;
+  height: 28vh;
+}
+.scrollbar::-webkit-scrollbar {
+  width: 7px;
+}
+.scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 10px;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
