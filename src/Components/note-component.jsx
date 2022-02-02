@@ -16,17 +16,24 @@ export default function Note(props) {
   }
 
   let handleDelete = (id) => {
-    setTask(tasks = tasks.filter( task => task.id !== id))
+    const found = tasks.find(task => task.id === id)
+    if (found.checked) {
+      setTask(tasks = tasks.filter( task => task.id !== id))
+      setChecked(checked = tasks.filter(t => t.checked).length)
+    }
+    else {
+      setTask(tasks = tasks.filter( task => task.id !== id))
+    }
 
   }
-
-  let addCheck = () => {
-    setChecked(checked = checked + 1)
+  let handleChange = (task) => {
+    const newTasks = [...tasks];  
+    const index = newTasks.indexOf(task);
+    newTasks[index] = { ...task };
+    newTasks[index].checked = !tasks[index].checked;
+    setTask(newTasks);
+    setChecked(checked = newTasks.filter(t => t.checked).length)
   }
-  let unCheck = () => {
-    if(checked >= 1){
-    setChecked(checked = checked - 1)}
-  } 
 
   return (
       <div className='col-3 p-3'>
@@ -43,7 +50,7 @@ export default function Note(props) {
             </div>
             <div className='p-3 tasksSpace scrollbar'>
               <ul className='ps-1'>
-                {tasks.map( task => {return <Task checked={addCheck} unchecked={unCheck} onDelete={() => handleDelete(task.id)} key={task.id} taskId={task.id} taskName={task.taskName} />})}
+                {tasks.map(task => { return <Task check={() => handleChange(task)} checked={task.checked} onDelete={() => handleDelete(task.id)} key={task.id} taskId={task.id} taskName={task.taskName} />})}
               </ul>
             </div>
           </div>
